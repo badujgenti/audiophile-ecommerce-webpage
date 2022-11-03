@@ -3,6 +3,11 @@ import styled from "styled-components";
 import Header from "./Header";
 import Background from "../assets/home/mobile/image-header.jpg";
 import BurgerMenu from "./BurgerMenu";
+import Speaker from "../assets/speaker-big.png";
+import Circles from "../assets/circles.png";
+import GrayPic from "../assets/home/mobile/image-speaker-zx7.jpg";
+import BlackImg from "../assets/home/mobile/image-earphones-yx1.jpg";
+import Person from "./Person";
 
 export default function Home() {
   return (
@@ -18,6 +23,33 @@ export default function Home() {
         <SeeProduct>SEE PRODUCT</SeeProduct>
       </AfterHeader>
       <BurgerMenu />
+      <PaddingDiv>
+        <OrangeDiv>
+          <img style={{ height: "207px" }} src={Speaker} alt="" />
+          <OrangeDivH1>ZX9 SPEAKER</OrangeDivH1>
+          <OrangeDivP>
+            Upgrade to premium speakers that are phenomenally built to deliver
+            truly remarkable sound.
+          </OrangeDivP>
+          <OrangeDivBtn> see product</OrangeDivBtn>
+        </OrangeDiv>
+        <GrayDiv>
+          <GrayDivH1>ZX7 SPEAKER</GrayDivH1>
+          <GrayDivBtn> see product</GrayDivBtn>
+        </GrayDiv>
+        <ImgAndText>
+          <img
+            style={{ width: "327px", height: "200px", borderRadius: "8px" }}
+            src={BlackImg}
+            alt=""
+          />
+          <LightGrayDiv>
+            <GrayDivH1>YX1 EARPHONES</GrayDivH1>
+            <GrayDivBtn> see product</GrayDivBtn>
+          </LightGrayDiv>
+        </ImgAndText>
+        <Person />
+      </PaddingDiv>
     </>
   );
 }
@@ -98,4 +130,129 @@ const SeeProduct = styled.button`
   color: #ffffff;
   margin-top: 28px;
   margin-bottom: 110px;
+`;
+
+const OrangeDiv = styled.div`
+  height: 600px;
+  width: 327px;
+  background: url(${Circles}), #d87d4a;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  padding: 23px 65px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const OrangeDivH1 = styled.h1`
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1.28571px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 32px;
+`;
+
+const OrangeDivP = styled.p`
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  /* or 167% */
+
+  text-align: center;
+
+  color: #ffffff;
+
+  mix-blend-mode: normal;
+  opacity: 0.75;
+  margin-top: 24px;
+`;
+
+const OrangeDivBtn = styled.button`
+  height: 48px;
+  width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Manrope";
+  font-style: normal;
+  background-color: black;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  border: none;
+  margin-top: 24px;
+`;
+
+const GrayDiv = styled.div`
+  height: 320px;
+  width: 327px;
+  background-image: url(${GrayPic});
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  padding: 101px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+`;
+
+const GrayDivH1 = styled.h1`
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #000000;
+`;
+const GrayDivBtn = styled.button`
+  height: 48px;
+  width: 160px;
+  border: 1px solid black;
+  background-color: transparent;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #000000;
+`;
+
+const ImgAndText = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const LightGrayDiv = styled.div`
+  height: 200px;
+  width: 327px;
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 41px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`;
+
+const PaddingDiv = styled.div`
+  padding: 120px 24px;
 `;
