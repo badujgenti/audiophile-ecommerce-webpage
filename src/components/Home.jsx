@@ -8,6 +8,7 @@ import Circles from "../assets/circles.png";
 import GrayPic from "../assets/home/mobile/image-speaker-zx7.jpg";
 import BlackImg from "../assets/home/mobile/image-earphones-yx1.jpg";
 import Person from "./Person";
+import Footer from "./Footer";
 
 export default function Home() {
   return (
@@ -50,6 +51,7 @@ export default function Home() {
         </ImgAndText>
         <Person />
       </PaddingDiv>
+      <Footer />
     </>
   );
 }
