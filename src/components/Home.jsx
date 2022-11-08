@@ -13,7 +13,6 @@ import Footer from "./Footer";
 export default function Home() {
   return (
     <>
-      <Header />
       <AfterHeader>
         <NewProduct>New Product</NewProduct>
         <H1>XX99 Mark II HeadphoneS</H1>
@@ -49,9 +48,7 @@ export default function Home() {
             <GrayDivBtn> see product</GrayDivBtn>
           </LightGrayDiv>
         </ImgAndText>
-        <Person />
       </PaddingDiv>
-      <Footer />
     </>
   );
 }
@@ -209,6 +206,8 @@ const GrayDiv = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 32px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 `;
 
 const GrayDivH1 = styled.h1`
@@ -242,6 +241,7 @@ const GrayDivBtn = styled.button`
 const ImgAndText = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 24px;
 `;
 
 const LightGrayDiv = styled.div`

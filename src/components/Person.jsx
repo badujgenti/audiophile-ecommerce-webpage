@@ -4,7 +4,7 @@ import Man from "../assets/shared/mobile/image-best-gear.jpg";
 
 export default function Person() {
   return (
-    <div>
+    <PaddingDiv>
       <PersonImg src={Man} alt="" />
       <PersonH1>
         Bringing you the <span>best </span> audio gear
@@ -17,7 +17,7 @@ export default function Person() {
         to meet some of the fantastic people who make Audiophile the best place
         to buy your portable audio equipment.
       </PersonP>
-    </div>
+    </PaddingDiv>
   );
 }
 
@@ -56,4 +56,10 @@ const PersonP = styled.p`
   margin-top: 32px;
   mix-blend-mode: normal;
   opacity: 0.5;
+`;
+
+const PaddingDiv = styled.div`
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 120px;
 `;
