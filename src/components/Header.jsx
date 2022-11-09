@@ -3,13 +3,19 @@ import styled from "styled-components";
 import burger from "../assets/Hamburger.svg";
 import logo from "../assets/logo.png";
 import cart from "../assets/cart.png";
+import BurgerMenu from "./BurgerMenu";
 
-export default function Header() {
+export default function Header({ setNavbarOpen, navbarOpen }) {
+  const openMenu = () => {
+    setNavbarOpen(!navbarOpen);
+  };
+
   return (
     <HeaderDiv>
-      <img src={burger} alt="" />
+      <img onClick={openMenu} src={burger} alt="" />
       <img src={logo} alt="" />
       <img src={cart} alt="" />
+      {navbarOpen && <BurgerMenu isAbsolute />}
     </HeaderDiv>
   );
 }
@@ -22,4 +28,6 @@ const HeaderDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  z-index: 3;
 `;

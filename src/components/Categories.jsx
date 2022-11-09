@@ -16,7 +16,7 @@ export default function Categories() {
       <Header>{category}</Header>
       <PaddingDiv>
         {dataItem.map((item) => (
-          <Headphone>
+          <Headphone key={item.id}>
             <Image src={process.env.PUBLIC_URL + item.image.mobile} alt="" />
             {item.new ? <New> New Product </New> : null}
             <h1>{item.name}</h1>

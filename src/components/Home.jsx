@@ -1,14 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "./Header";
 import Background from "../assets/home/mobile/image-header.jpg";
 import BurgerMenu from "./BurgerMenu";
 import Speaker from "../assets/speaker-big.png";
 import Circles from "../assets/circles.png";
 import GrayPic from "../assets/home/mobile/image-speaker-zx7.jpg";
 import BlackImg from "../assets/home/mobile/image-earphones-yx1.jpg";
-import Person from "./Person";
-import Footer from "./Footer";
 
 export default function Home() {
   return (
@@ -133,7 +130,7 @@ const SeeProduct = styled.button`
 
 const OrangeDiv = styled.div`
   height: 600px;
-  width: 327px;
+
   background: url(${Circles}), #d87d4a;
   background-repeat: no-repeat;
   border-radius: 8px;

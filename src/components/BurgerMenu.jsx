@@ -5,29 +5,53 @@ import arrow from "../assets/arrow.svg";
 import Speaker from "../assets/Speaker.png";
 import BTspeaker from "../assets/Bt-speaker.png";
 
-export default function BurgerMenu() {
+import { Link } from "react-router-dom";
+
+export default function BurgerMenu({ isAbsolute }) {
   return (
-    <BurgerDiv>
+    <BurgerDiv isAbsolute={isAbsolute}>
       <Box>
         <Image src={Headphones} alt="" />
         <Item>Headphones</Item>
-        <Shop>
-          Shop <img src={arrow} alt="" />{" "}
-        </Shop>
+
+        <Link
+          to="/category/headphones"
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          <Shop>
+            Shop <img src={arrow} alt="" />{" "}
+          </Shop>
+        </Link>
       </Box>
       <Box>
         <Image src={Speaker} alt="" />
         <Item>Speakers</Item>
-        <Shop>
-          Shop <img src={arrow} alt="" />{" "}
-        </Shop>
+        <Link
+          to="/category/speakers"
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          <Shop>
+            Shop <img src={arrow} alt="" />{" "}
+          </Shop>
+        </Link>
       </Box>
       <Box>
         <Image src={BTspeaker} alt="" />
         <Item>Earphones</Item>
-        <Shop>
-          Shop <img src={arrow} alt="" />{" "}
-        </Shop>
+        <Link
+          to="/category/earphones"
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          <Shop>
+            Shop <img src={arrow} alt="" />{" "}
+          </Shop>
+        </Link>
       </Box>
     </BurgerDiv>
   );
@@ -58,6 +82,12 @@ const BurgerDiv = styled.div`
   gap: 68px;
   align-items: center;
   flex-direction: column;
+  position: ${(props) => (props.isAbsolute ? "absolute" : "static")};
+  background-color: ${(props) => (props.isAbsolute ? "white" : "transparent")};
+  z-index: 3;
+
+  left: 0;
+  top: 100%;
 `;
 
 const Item = styled.p`
@@ -85,4 +115,5 @@ const Shop = styled.p`
   opacity: 0.5;
   margin-bottom: 22px;
   margin-top: 17px;
+  text-decoration: none;
 `;
