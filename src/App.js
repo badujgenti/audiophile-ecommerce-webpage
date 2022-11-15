@@ -6,13 +6,19 @@ import { Route, Routes } from 'react-router-dom';
 import Categories from "./components/Categories.jsx";
 import { useState } from "react";
 import styled from "styled-components";
+import Item from "./components/Item.jsx";
+import Cart from "./components/Cart.jsx";
 
 
 
 function App() {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
+  const [cart , setCart] = useState([])
 
+  const [menu , setMenu] = useState(false);
+
+ 
 
 
   return (
@@ -20,16 +26,21 @@ function App() {
       {navbarOpen && <BlackBgd  />}
 
       
-      <Header navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
+      <Header navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} cart={cart} setCart={setCart} menu={menu} setMenu={setMenu} />
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/category/:category' element={<Categories />}/>
+        <Route path='/category/:category/:slug' element={<Item cart={cart} setCart={setCart} />}/>
+
         
 
 
      
       </Routes>
      
+    
+    <Item/>
+
    
 
      <Person/>

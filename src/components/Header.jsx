@@ -2,21 +2,36 @@ import React from "react";
 import styled from "styled-components";
 import burger from "../assets/Hamburger.svg";
 import logo from "../assets/logo.png";
-import cart from "../assets/cart.png";
+import cart1 from "../assets/cart.png";
 import BurgerMenu from "./BurgerMenu";
+import Cart from "./Cart";
 
-export default function Header({ setNavbarOpen, navbarOpen }) {
+export default function Header({
+  setNavbarOpen,
+  navbarOpen,
+  menu,
+  setMenu,
+  cart,
+  setCart,
+}) {
   const openMenu = () => {
     setNavbarOpen(!navbarOpen);
   };
 
+  const openCart = () => {
+    setMenu(!menu);
+  };
+
   return (
-    <HeaderDiv>
-      <img onClick={openMenu} src={burger} alt="" />
-      <img src={logo} alt="" />
-      <img src={cart} alt="" />
-      {navbarOpen && <BurgerMenu isAbsolute />}
-    </HeaderDiv>
+    <div>
+      <HeaderDiv>
+        <img onClick={openMenu} src={burger} alt="" />
+        <img src={logo} alt="" />
+        <img onClick={openCart} src={cart1} alt="" />
+        {navbarOpen && <BurgerMenu isAbsolute />}
+      </HeaderDiv>
+      {menu && <Cart cart={cart} setCart={setCart} />}
+    </div>
   );
 }
 

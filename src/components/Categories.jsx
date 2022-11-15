@@ -2,28 +2,35 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
+import { Link } from "react-router-dom";
 
 export default function Categories() {
-  const [type, setType] = useState("");
-
   const { category } = useParams();
 
   const dataItem = data.filter((item) => item.category === category);
-  console.log(dataItem);
 
   return (
     <>
       <Header>{category}</Header>
       <PaddingDiv>
-        {dataItem.map((item) => (
-          <Headphone key={item.id}>
-            <Image src={process.env.PUBLIC_URL + item.image.mobile} alt="" />
-            {item.new ? <New> New Product </New> : null}
-            <h1>{item.name}</h1>
-            <p>{item.description}</p>
-            <SeeProduct>SEE PRODUCT</SeeProduct>
-          </Headphone>
-        ))}
+        {dataItem.map((item) => {
+          return (
+            <Headphone key={item.id}>
+              <Image src={process.env.PUBLIC_URL + item.image.mobile} alt="" />
+              {item.new ? <New> New Product </New> : null}
+              <h1>{item.name}</h1>
+              <p>{item.description}</p>
+              <Link
+                to={`/category/${item.category}/${item.slug}`}
+                style={{
+                  textDecoration: "none",
+                }}
+              >
+                <SeeProduct>see product </SeeProduct>
+              </Link>
+            </Headphone>
+          );
+        })}
       </PaddingDiv>
       ;
     </>
