@@ -8,6 +8,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Item from "./components/Item.jsx";
 import Cart from "./components/Cart.jsx";
+import Checkout from "./components/Checkout.jsx";
 
 
 
@@ -18,12 +19,18 @@ function App() {
 
   const [menu , setMenu] = useState(false);
 
+  const [modal , setModal] = useState(false)
+
+
  
 
 
   return (
     <div className="App">
-      {navbarOpen && <BlackBgd  />}
+      {navbarOpen  && <BlackBgd  />}
+
+      {modal && <BlackBgd/>}
+      
 
       
       <Header navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} cart={cart} setCart={setCart} menu={menu} setMenu={setMenu} />
@@ -31,7 +38,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/category/:category' element={<Categories />}/>
         <Route path='/category/:category/:slug' element={<Item cart={cart} setCart={setCart} />}/>
-
+        <Route path="/category/:category/:slug/:checkout" element={<Checkout cart={cart} setCart={setCart } modal={modal} setModal={setModal}/>} />
         
 
 

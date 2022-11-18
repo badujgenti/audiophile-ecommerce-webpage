@@ -7,7 +7,7 @@ import BTspeaker from "../assets/Bt-speaker.png";
 
 import { Link } from "react-router-dom";
 
-export default function BurgerMenu({ isAbsolute }) {
+export default function BurgerMenu({ isAbsolute, toggleMenu }) {
   return (
     <BurgerDiv isAbsolute={isAbsolute}>
       <Box>
@@ -15,6 +15,7 @@ export default function BurgerMenu({ isAbsolute }) {
         <Item>Headphones</Item>
 
         <Link
+          onClick={toggleMenu}
           to="/category/headphones"
           style={{
             textDecoration: "none",
@@ -29,6 +30,7 @@ export default function BurgerMenu({ isAbsolute }) {
         <Image src={Speaker} alt="" />
         <Item>Speakers</Item>
         <Link
+          onClick={toggleMenu}
           to="/category/speakers"
           style={{
             textDecoration: "none",
@@ -43,6 +45,7 @@ export default function BurgerMenu({ isAbsolute }) {
         <Image src={BTspeaker} alt="" />
         <Item>Earphones</Item>
         <Link
+          onClick={toggleMenu}
           to="/category/earphones"
           style={{
             textDecoration: "none",

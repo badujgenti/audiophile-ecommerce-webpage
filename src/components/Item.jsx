@@ -3,9 +3,11 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Item({ cart, setCart }) {
   const { slug, category } = useParams();
+  const navigate = useNavigate();
 
   const items = data.filter((thing) => thing.slug === slug);
 
@@ -52,7 +54,8 @@ export default function Item({ cart, setCart }) {
 
         return (
           <FullDiv>
-            <GoBack>Go back</GoBack>
+            <GoBack onClick={() => navigate(-1)}>Go back</GoBack>
+
             <MainImg src={item.image.mobile} alt="" />
             {item.new ? <New> New Product </New> : null}
             <h1>{item.name}</h1>
@@ -87,7 +90,9 @@ export default function Item({ cart, setCart }) {
               <MayLikeDiv>
                 <MayLikePic src={other.image.mobile} alt="" />
                 <MayLikeText>{other.name}</MayLikeText>
-                <SeeProduct>see product </SeeProduct>
+                <Link to={`/category/${other.category}/${other.slug}`}>
+                  <SeeProduct>see product </SeeProduct>
+                </Link>
               </MayLikeDiv>
             ))}
           </FullDiv>

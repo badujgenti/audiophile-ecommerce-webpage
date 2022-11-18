@@ -4,15 +4,24 @@ import logo from "../assets/logo.png";
 import Facebook from "../assets/Colaborations.svg";
 import Twitter from "../assets/twitter.svg";
 import Insta from "../assets/insta.svg";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
     <FullDiv>
       <img src={logo} alt="" />
-      <FooterH1> Home </FooterH1>
-      <FooterH1> Headphones </FooterH1>
-      <FooterH1> speakers </FooterH1>
-      <FooterH1> earphones </FooterH1>
+      <Link to="/">
+        <FooterH1> Home </FooterH1>
+      </Link>
+      <Link to="/category/headphones/">
+        <FooterH1> Headphones </FooterH1>
+      </Link>
+      <Link to="/category/speakers/">
+        <FooterH1> speakers </FooterH1>
+      </Link>
+      <Link to="/category/earphones/">
+        <FooterH1> earphones </FooterH1>
+      </Link>
       <FooterP>
         Audiophile is an all in one stop to fulfill your audio needs. We're a
         small team of music lovers and sound specialists who are devoted to

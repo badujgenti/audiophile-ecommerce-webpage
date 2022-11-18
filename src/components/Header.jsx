@@ -5,6 +5,8 @@ import logo from "../assets/logo.png";
 import cart1 from "../assets/cart.png";
 import BurgerMenu from "./BurgerMenu";
 import Cart from "./Cart";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header({
   setNavbarOpen,
@@ -14,7 +16,7 @@ export default function Header({
   cart,
   setCart,
 }) {
-  const openMenu = () => {
+  const toggleMenu = () => {
     setNavbarOpen(!navbarOpen);
   };
 
@@ -25,12 +27,21 @@ export default function Header({
   return (
     <div>
       <HeaderDiv>
-        <img onClick={openMenu} src={burger} alt="" />
-        <img src={logo} alt="" />
+        <img onClick={toggleMenu} src={burger} alt="" />
+        <Link to="/">
+          <img src={logo} alt="" />
+        </Link>
         <img onClick={openCart} src={cart1} alt="" />
-        {navbarOpen && <BurgerMenu isAbsolute />}
+        {navbarOpen && <BurgerMenu isAbsolute toggleMenu={toggleMenu} />}
       </HeaderDiv>
-      {menu && <Cart cart={cart} setCart={setCart} />}
+      {menu && (
+        <Cart
+          cart={cart}
+          setCart={setCart}
+          navbarOpen={navbarOpen}
+          setNavbarOpen={setNavbarOpen}
+        />
+      )}
     </div>
   );
 }

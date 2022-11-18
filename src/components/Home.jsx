@@ -6,6 +6,7 @@ import Speaker from "../assets/speaker-big.png";
 import Circles from "../assets/circles.png";
 import GrayPic from "../assets/home/mobile/image-speaker-zx7.jpg";
 import BlackImg from "../assets/home/mobile/image-earphones-yx1.jpg";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -17,7 +18,9 @@ export default function Home() {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </AfterH1>
-        <SeeProduct>SEE PRODUCT</SeeProduct>
+        <Link to="/category/headphones/xx99-mark-two-headphones">
+          <SeeProduct>SEE PRODUCT</SeeProduct>
+        </Link>
       </AfterHeader>
       <BurgerMenu />
       <PaddingDiv>
@@ -28,11 +31,15 @@ export default function Home() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </OrangeDivP>
-          <OrangeDivBtn> see product</OrangeDivBtn>
+          <Link to="/category/speakers/zx9-speaker">
+            <OrangeDivBtn> see product</OrangeDivBtn>
+          </Link>
         </OrangeDiv>
         <GrayDiv>
           <GrayDivH1>ZX7 SPEAKER</GrayDivH1>
-          <GrayDivBtn> see product</GrayDivBtn>
+          <Link to="/category/speakers/zx7-speaker">
+            <GrayDivBtn> see product</GrayDivBtn>
+          </Link>
         </GrayDiv>
         <ImgAndText>
           <img
@@ -42,7 +49,9 @@ export default function Home() {
           />
           <LightGrayDiv>
             <GrayDivH1>YX1 EARPHONES</GrayDivH1>
-            <GrayDivBtn> see product</GrayDivBtn>
+            <Link to="/category/earphones/yx1-earphones">
+              <GrayDivBtn> see product</GrayDivBtn>
+            </Link>
           </LightGrayDiv>
         </ImgAndText>
       </PaddingDiv>
