@@ -17,6 +17,10 @@ export default function Categories() {
           return (
             <Headphone key={item.id}>
               <Image src={process.env.PUBLIC_URL + item.image.mobile} alt="" />
+              <ImageTab
+                src={process.env.PUBLIC_URL + item.image.desktop}
+                alt=""
+              />
               {item.new ? <New> New Product </New> : null}
               <h1>{item.name}</h1>
               <p>{item.description}</p>
@@ -52,21 +56,49 @@ const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    height: 246px;
+
+    font-size: 40px;
+
+    line-height: 44px;
+  }
 `;
 
 const Headphone = styled.div`
   height: 724px;
-  width: 327px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 24px;
+  p {
+    color: gray;
+  }
+  @media screen and (min-width: 768px) {
+    height: 706px;
+    width: 689px;
+  }
+  h1 {
+    width: 375px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 1.4285714626312256px;
+    text-align: center;
+  }
 `;
 
 const PaddingDiv = styled.div`
   padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    padding: 120px 40px;
+  }
 `;
 
 const Image = styled.img`
@@ -75,6 +107,20 @@ const Image = styled.img`
   left: 24px;
   top: 1100px;
   border-radius: 8px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+const ImageTab = styled.img`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    height: 352px;
+
+    left: 39px;
+    top: 456px;
+    border-radius: 8px;
+  }
 `;
 
 const SeeProduct = styled.button`

@@ -77,7 +77,6 @@ const Image = styled.img`
 
 const BurgerDiv = styled.div`
   height: 750px;
-  width: 375px;
   padding-top: 84px;
   padding-left: 24px;
   padding-right: 24px;
@@ -88,9 +87,16 @@ const BurgerDiv = styled.div`
   position: ${(props) => (props.isAbsolute ? "absolute" : "static")};
   background-color: ${(props) => (props.isAbsolute ? "white" : "transparent")};
   z-index: 3;
-
+  width: 100%;
   left: 0;
   top: 100%;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    height: 340px;
+    gap: 10px;
+  }
 `;
 
 const Item = styled.p`

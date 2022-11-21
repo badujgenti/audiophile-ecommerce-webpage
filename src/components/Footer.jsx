@@ -10,33 +10,45 @@ export default function Footer() {
   return (
     <FullDiv>
       <img src={logo} alt="" />
-      <Link to="/">
-        <FooterH1> Home </FooterH1>
-      </Link>
-      <Link to="/category/headphones/">
-        <FooterH1> Headphones </FooterH1>
-      </Link>
-      <Link to="/category/speakers/">
-        <FooterH1> speakers </FooterH1>
-      </Link>
-      <Link to="/category/earphones/">
-        <FooterH1> earphones </FooterH1>
-      </Link>
+      <NavigatorBar>
+        <Link to="/">
+          <FooterH1> Home </FooterH1>
+        </Link>
+        <Link to="/category/headphones/">
+          <FooterH1> Headphones </FooterH1>
+        </Link>
+        <Link to="/category/speakers/">
+          <FooterH1> speakers </FooterH1>
+        </Link>
+        <Link to="/category/earphones/">
+          <FooterH1> earphones </FooterH1>
+        </Link>
+      </NavigatorBar>
       <FooterP>
         Audiophile is an all in one stop to fulfill your audio needs. We're a
         small team of music lovers and sound specialists who are devoted to
         helping you get the most out of personal audio. Come and visit our demo
         facility - we’re open 7 days a week.
       </FooterP>
-      <h1> Copyright 2021. All Rights Reserved</h1>
-      <Icons>
-        <img src={Facebook} alt="" />
-        <img src={Twitter} alt="" />
-        <img src={Insta} alt="" />
-      </Icons>
+      <LastDiv>
+        <h1> Copyright 2021. All Rights Reserved</h1>
+        <Icons>
+          <img src={Facebook} alt="" />
+          <img src={Twitter} alt="" />
+          <img src={Insta} alt="" />
+        </Icons>
+      </LastDiv>
     </FullDiv>
   );
 }
+
+const NavigatorBar = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 34px;
+    align-items: flex-start;
+  }
+`;
 
 const FullDiv = styled.div`
   height: 654px;
@@ -62,6 +74,10 @@ const FullDiv = styled.div`
 
     mix-blend-mode: normal;
     opacity: 0.5;
+  }
+  @media screen and (min-width: 768px) {
+    align-items: flex-start;
+    height: 400px;
   }
 `;
 
@@ -91,6 +107,9 @@ const FooterP = styled.p`
 
   mix-blend-mode: normal;
   opacity: 0.5;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
 `;
 
 const FB = styled.img`
@@ -106,4 +125,13 @@ const Icons = styled.div`
   left: 136px;
   top: 592px;
   border-radius: 0px;
+`;
+
+const LastDiv = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  }
 `;

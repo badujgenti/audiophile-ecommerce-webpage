@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Man from "../assets/shared/mobile/image-best-gear.jpg";
+import ManTablet from "../assets/shared/tablet/image-best-gear.jpg";
 
 export default function Person() {
   return (
     <PaddingDiv>
-      <PersonImg src={Man} alt="" />
+      <PersonImg></PersonImg>
       <PersonH1>
         Bringing you the <span>best </span> audio gear
       </PersonH1>
@@ -21,10 +22,16 @@ export default function Person() {
   );
 }
 
-const PersonImg = styled.img`
+const PersonImg = styled.div`
   height: 300px;
-  width: 327px;
+  width: 100%;
   border-radius: 8px;
+  background-image: url(${Man});
+  background-position: center;
+  background-repeat: no-repeat;
+  @media screen and (min-width: 768px) {
+    background-image: url(${ManTablet});
+  }
 `;
 
 const PersonH1 = styled.h1`
@@ -62,4 +69,9 @@ const PaddingDiv = styled.div`
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 120px;
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+  align-items: center;
 `;

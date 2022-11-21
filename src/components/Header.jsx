@@ -48,7 +48,7 @@ export default function Header({
 
 const HeaderDiv = styled.div`
   height: 90px;
-  width: 375px;
+
   background-color: black;
   padding: 24px 32px;
   display: flex;

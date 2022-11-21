@@ -7,6 +7,8 @@ import Circles from "../assets/circles.png";
 import GrayPic from "../assets/home/mobile/image-speaker-zx7.jpg";
 import BlackImg from "../assets/home/mobile/image-earphones-yx1.jpg";
 import { Link } from "react-router-dom";
+import BackgroundTablet from "../assets/home/tablet/image-header.jpg";
+import GrayPicTablet from "../assets/home/tablet/image-speaker-zx7.jpg";
 
 export default function Home() {
   return (
@@ -42,11 +44,7 @@ export default function Home() {
           </Link>
         </GrayDiv>
         <ImgAndText>
-          <img
-            style={{ width: "327px", height: "200px", borderRadius: "8px" }}
-            src={BlackImg}
-            alt=""
-          />
+          <BlackImage />
           <LightGrayDiv>
             <GrayDivH1>YX1 EARPHONES</GrayDivH1>
             <Link to="/category/earphones/yx1-earphones">
@@ -70,6 +68,29 @@ const AfterHeader = styled.div`
   flex-direction: column;
 
   align-items: center;
+  @media screen and (min-width: 768px) {
+    background-image: url(${BackgroundTablet});
+    height: 900px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const BlackImage = styled.div`
+  width: 327px;
+  height: 200px;
+  background-image: url(${BlackImg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+  @media screen and (min-width: 768px) {
+    height: 320px;
+    width: 339px;
+    border-radius: 8px;
+  }
 `;
 
 const NewProduct = styled.p`
@@ -85,6 +106,22 @@ const NewProduct = styled.p`
   mix-blend-mode: normal;
   opacity: 0.5;
   padding-top: 108px;
+  @media screen and (min-width: 768px) {
+    margin-top: 0px;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    opacity: 0.5;
+  }
 `;
 
 const H1 = styled.h1`
@@ -100,6 +137,21 @@ const H1 = styled.h1`
 
   color: #ffffff;
   padding-top: 16px;
+  @media screen and (min-width: 768px) {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 58px;
+    /* or 104% */
+
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    width: 400px;
+  }
 `;
 
 const AfterH1 = styled.p`
@@ -113,6 +165,9 @@ const AfterH1 = styled.p`
   mix-blend-mode: normal;
   opacity: 0.75;
   padding-top: 24px;
+  @media screen and (min-width: 768px) {
+    width: 350px;
+  }
 `;
 
 const SeeProduct = styled.button`
@@ -201,7 +256,7 @@ const OrangeDivBtn = styled.button`
 
 const GrayDiv = styled.div`
   height: 320px;
-  width: 327px;
+  width: 100%;
   background-image: url(${GrayPic});
   background-size: cover;
   background-repeat: no-repeat;
@@ -214,6 +269,9 @@ const GrayDiv = styled.div`
   gap: 32px;
   margin-top: 24px;
   margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    background-image: url(${GrayPicTablet});
+  }
 `;
 
 const GrayDivH1 = styled.h1`
@@ -248,6 +306,9 @@ const ImgAndText = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const LightGrayDiv = styled.div`
@@ -259,8 +320,19 @@ const LightGrayDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  @media screen and (min-width: 768px) {
+    height: 320px;
+    width: 339px;
+    left: 0px;
+    top: 0px;
+    border-radius: 8px;
+    padding: 100px 41px;
+  }
 `;
 
 const PaddingDiv = styled.div`
   padding: 120px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
