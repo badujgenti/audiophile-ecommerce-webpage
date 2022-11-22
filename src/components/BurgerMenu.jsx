@@ -95,7 +95,7 @@ const BurgerDiv = styled.div`
     display: flex;
     flex-direction: row;
     height: 340px;
-    gap: 10px;
+    justify-content: space-around;
   }
 `;
 

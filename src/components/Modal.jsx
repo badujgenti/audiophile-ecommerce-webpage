@@ -8,45 +8,59 @@ export default function Modal({ cart, setModal }) {
     return total + num.price * num.count;
   }, 0);
 
+  if (cart.length === 0) {
+    return;
+  }
+
   return (
-    <MainDiv>
-      <Checkbox>
-        <img src={check} alt="" />
-      </Checkbox>
-      <Thank>THANK YOU FOR YOUR ORDER</Thank>
-      <Grand>You will receive an email confirmation shortly.</Grand>
-      <GrayBlackDiv>
-        <OneDiv>
-          <Img src={cart[0].img} alt="" />
-          <div>
-            <Name> {cart[0].slug}</Name>
-            <Price> $ {cart[0].price * cart[0].count}</Price>
-          </div>
-          <Money> x{cart[0].count}</Money>
-        </OneDiv>
-        <hr />
-        <Money>and {cart.length - 1} other items</Money>
-        <BlackDiv>
-          <Grand>GRAND TOTAL</Grand>
+    <Center>
+      <MainDiv>
+        <Checkbox>
+          <img src={check} alt="" />
+        </Checkbox>
+        <Thank>THANK YOU FOR YOUR ORDER</Thank>
+        <Grand>You will receive an email confirmation shortly.</Grand>
 
-          <h1>$ {total + total / 100 + total / 5}</h1>
-        </BlackDiv>
-      </GrayBlackDiv>
+        <GrayBlackDiv>
+          <OneDiv>
+            <Img src={cart[0].img} alt="" />
+            <div>
+              <Name> {cart[0].slug}</Name>
+              <Price> $ {cart[0].price * cart[0].count}</Price>
+            </div>
+            <Money> x{cart[0].count}</Money>
+          </OneDiv>
+          <hr />
+          <Money>and {cart.length - 1} other items</Money>
+          <BlackDiv>
+            <Grand>GRAND TOTAL</Grand>
 
-      <Link to="/">
-        <BackToHome onClick={() => setModal(false)}>Back To Home</BackToHome>
-      </Link>
-    </MainDiv>
+            <h1>$ {total + total / 100 + total / 5}</h1>
+          </BlackDiv>
+        </GrayBlackDiv>
+
+        <Link to="/">
+          <BackToHome onClick={() => setModal(false)}>Back To Home</BackToHome>
+        </Link>
+      </MainDiv>
+    </Center>
   );
 }
+
+const Center = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const MainDiv = styled.div`
   position: absolute;
   padding: 32px;
   height: 600px;
   width: 327px;
-  left: 0px;
-  top: 200px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -55,6 +69,12 @@ const MainDiv = styled.div`
   margin-left: 24px;
   background-color: white;
   z-index: 3;
+  @media screen and (min-width: 768px) {
+    height: 581px;
+    width: 540px;
+    border-radius: 8px;
+    align-items: flex-start;
+  }
 `;
 
 const Checkbox = styled.div`
@@ -94,6 +114,11 @@ const GrayBlackDiv = styled.div`
   background: #f1f1f1;
   padding: 24px;
   margin-top: 24px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    width: 100%;
+    padding: 0px;
+  }
 `;
 const Img = styled.img`
   height: 64px;
@@ -116,6 +141,10 @@ const Money = styled.p`
   /* identical to box height, or 167% */
   text-align: center;
   color: gray;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-self: center;
+  }
 `;
 const Price = styled.p`
   font-family: "Manrope";
@@ -165,6 +194,17 @@ const BlackDiv = styled.div`
   h1 {
     margin-top: 8px;
   }
+  @media screen and (min-width: 768px) {
+    height: 230px;
+    width: 288px;
+    margin-top: 0;
+    margin-left: 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 const Grand = styled.p`
@@ -201,4 +241,7 @@ const BackToHome = styled.div`
   margin-top: 23px;
 
   color: #ffffff;
+  @media screen and (min-width: 768px) {
+    width: 440%;
+  }
 `;

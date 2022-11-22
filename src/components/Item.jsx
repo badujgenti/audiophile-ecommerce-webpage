@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
 import { Link, useNavigate } from "react-router-dom";
+import BurgerMenu from "./BurgerMenu";
 
 export default function Item({ cart, setCart }) {
   const { slug, category } = useParams();
@@ -54,29 +55,40 @@ export default function Item({ cart, setCart }) {
 
         return (
           <FullDiv>
-            <GoBack onClick={() => navigate(-1)}>Go back</GoBack>
+            <Center>
+              <div>
+                <GoBack onClick={() => navigate(-1)}>Go back</GoBack>
 
-            <MainImg src={item.image.mobile} alt="" />
-            {item.new ? <New> New Product </New> : null}
-            <h1>{item.name}</h1>
-            <Description>{item.description}</Description>
-            <PriceTag>$ {item.price * itemCount}</PriceTag>
-            <div style={{ display: "flex", gap: "16px" }}>
-              <CountDiv>
-                <span onClick={Decrease}>-</span> {itemCount}{" "}
-                <span onClick={Increase}>+</span>
-              </CountDiv>
-              <SeeProduct onClick={AddToCart}>add to cart</SeeProduct>
-            </div>
+                <MainImg src={item.image.mobile} alt="" />
+                <MainImgTablet src={item.image.tablet} alt="" />
+              </div>
+              <div>
+                {item.new ? <New> New Product </New> : null}
+                <h1>{item.name}</h1>
+                <Description>{item.description}</Description>
+                <PriceTag>$ {item.price * itemCount}</PriceTag>
+                <div style={{ display: "flex", gap: "16px" }}>
+                  <CountDiv>
+                    <span onClick={Decrease}>-</span> {itemCount}{" "}
+                    <span onClick={Increase}>+</span>
+                  </CountDiv>
+                  <SeeProduct onClick={AddToCart}>add to cart</SeeProduct>
+                </div>
+              </div>
+            </Center>
             <Features>FEATURES</Features>
             <Description>{item.features}</Description>
-            <Features>IN THE BOX</Features>
-            {item.includes.map((one) => (
+            <FlexDiv>
+              <Features>IN THE BOX</Features>
               <div>
-                <Count>{one.quantity}x</Count>
-                <CountText>{one.item}</CountText>
+                {item.includes.map((one) => (
+                  <div>
+                    <Count>{one.quantity}x</Count>
+                    <CountText>{one.item}</CountText>
+                  </div>
+                ))}
               </div>
-            ))}
+            </FlexDiv>
             <MapDiv>
               {galleryImages.map((pic, index, self) => (
                 <div>
@@ -86,15 +98,20 @@ export default function Item({ cart, setCart }) {
               ))}
             </MapDiv>
             <Features>YOU MAY ALSO LIKE</Features>
-            {item.others.map((other) => (
-              <MayLikeDiv>
-                <MayLikePic src={other.image.mobile} alt="" />
-                <MayLikeText>{other.name}</MayLikeText>
-                <Link to={`/category/${other.category}/${other.slug}`}>
-                  <SeeProduct>see product </SeeProduct>
-                </Link>
-              </MayLikeDiv>
-            ))}
+            <FlexDiv>
+              {item.others.map((other) => (
+                <MayLikeDiv>
+                  <MayLikePic src={other.image.mobile} alt="" />
+                  <MayLikePicTablet src={other.image.tablet} alt="" />
+
+                  <MayLikeText>{other.name}</MayLikeText>
+                  <Link to={`/category/${other.category}/${other.slug}`}>
+                    <SeeProduct>see product </SeeProduct>
+                  </Link>
+                </MayLikeDiv>
+              ))}
+            </FlexDiv>
+            <BurgerMenu />
           </FullDiv>
         );
       })}
@@ -102,8 +119,29 @@ export default function Item({ cart, setCart }) {
   );
 }
 
+const FlexDiv = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+  }
+`;
+
 const FullDiv = styled.div`
   padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Center = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+  }
 `;
 
 const GoBack = styled.p`
@@ -121,10 +159,25 @@ const GoBack = styled.p`
 `;
 
 const MainImg = styled.img`
+  display: flex;
   height: 327px;
   width: 327px;
-
   border-radius: 8px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+const MainImgTablet = styled.img`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: inline;
+    height: 480px;
+    width: 281px;
+    left: 39px;
+    top: 172px;
+    border-radius: 8px;
+  }
 `;
 
 const New = styled.p`
@@ -189,6 +242,10 @@ const MapImg = styled.img`
 
 const MapDiv = styled.div`
   margin-top: 88px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 11px;
+  }
 `;
 
 const MayLikePic = styled.img`
@@ -196,6 +253,18 @@ const MayLikePic = styled.img`
   width: 327px;
 
   border-radius: 8px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+const MayLikePicTablet = styled.img`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: inline;
+    width: 223px;
+
+    border-radius: 8px;
+  }
 `;
 
 const MayLikeText = styled.h1`

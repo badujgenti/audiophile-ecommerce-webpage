@@ -12,7 +12,7 @@ export default function Checkout({ cart, setModal }) {
   const [hideModal, setHideModal] = useState(false);
 
   return (
-    <div>
+    <Center>
       <MainDiv>
         <Checkout1>Checkout</Checkout1>
         <OrangeText>billing details</OrangeText>
@@ -53,11 +53,13 @@ export default function Checkout({ cart, setModal }) {
         {cart.map((item) => {
           return (
             <OneDiv>
-              <Img src={item.img} alt="" />
-              <PriceDiv>
-                <Name>{item.slug}</Name>
-                <Price>{item.price * item.count}</Price>
-              </PriceDiv>
+              <FlexDiv>
+                <Img src={item.img} alt="" />
+                <PriceDiv>
+                  <Name>{item.slug}</Name>
+                  <Price>{item.price * item.count}</Price>
+                </PriceDiv>
+              </FlexDiv>
               <Money> x{item.count}</Money>
             </OneDiv>
           );
@@ -89,9 +91,22 @@ export default function Checkout({ cart, setModal }) {
         </Pay>
       </Summary>
       {hideModal ? <Modal cart={cart} setModal={setModal} /> : null}
-    </div>
+    </Center>
   );
 }
+
+const FlexDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 
 const MainDiv = styled.div`
   min-height: 1378px;
@@ -102,6 +117,15 @@ const MainDiv = styled.div`
   margin: 24px;
   padding: 24px;
   background-color: #ffffff;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    height: 1084px;
+    width: 689px;
+    left: 0px;
+    top: 49px;
+    border-radius: 8px;
+  }
 `;
 
 const Checkout1 = styled.h1`
@@ -151,6 +175,13 @@ const Input = styled.input`
   border-radius: 8px;
   padding: 24px;
   margin-top: 9px;
+  @media screen and (min-width: 768px) {
+    height: 56px;
+    width: 100%;
+    left: 0px;
+    top: 25px;
+    border-radius: 8px;
+  }
 `;
 
 const InputDiv = styled.div`
@@ -164,6 +195,9 @@ const InputDiv = styled.div`
   gap: 10px;
   padding-left: 20px;
   margin-top: 9px;
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Summary = styled.div`
@@ -175,6 +209,13 @@ const Summary = styled.div`
   background: #f2f2f2;
   margin: 24px;
   padding: 24px 32px;
+  @media screen and (min-width: 768px) {
+    height: 612px;
+    width: 689px;
+    left: 0px;
+    top: 0px;
+    border-radius: 8px;
+  }
 `;
 
 const Img = styled.img`
@@ -268,4 +309,8 @@ const Pay = styled.div`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
 `;

@@ -15,13 +15,19 @@ export default function Header({
   setMenu,
   cart,
   setCart,
+  modal,
+  setModal,
 }) {
   const toggleMenu = () => {
     setNavbarOpen(!navbarOpen);
+    setMenu(false);
+    setModal(false);
   };
 
   const openCart = () => {
     setMenu(!menu);
+    setNavbarOpen(false);
+    setModal(false);
   };
 
   return (

@@ -46,7 +46,7 @@ export default function Cart({ cart, setCart, navbarOpen }) {
 
   console.log(navbarOpen);
   return (
-    <div>
+    <Center>
       {modal && <BlackBgd />}
       {modal && (
         <CartDiv>
@@ -89,9 +89,17 @@ export default function Cart({ cart, setCart, navbarOpen }) {
           </Link>
         </CartDiv>
       )}
-    </div>
+    </Center>
   );
 }
+
+const Center = styled.div`
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 100px;
+    right: 37%;
+  }
+`;
 
 const CartDiv = styled.div`
   height: 488px;
@@ -103,6 +111,8 @@ const CartDiv = styled.div`
   margin-top: 24px;
   z-index: 4;
   position: fixed;
+  @media screen and (min-width: 768px) {
+  }
 `;
 
 const Img = styled.img`
