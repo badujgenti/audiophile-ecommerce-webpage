@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/audiophile-ecommerce-webpage/static/css/main.5ebfd7eb.css",
+    "main.js": "/audiophile-ecommerce-webpage/static/js/main.436d3a91.js",
+    "static/media/image-best-gear.jpg": "/audiophile-ecommerce-webpage/static/media/image-best-gear.28ded79e4776ecd29f87.jpg",
+    "static/media/image-header.jpg": "/audiophile-ecommerce-webpage/static/media/image-header.d200a3583e72c7981f46.jpg",
+    "static/media/speaker-big.png": "/audiophile-ecommerce-webpage/static/media/speaker-big.021567feb06dc1512c40.png",
+    "static/media/Headphones.png": "/audiophile-ecommerce-webpage/static/media/Headphones.c2a821d3cbc67e50cecc.png",
+    "static/media/image-speaker-zx7.jpg": "/audiophile-ecommerce-webpage/static/media/image-speaker-zx7.173a4cb5c7acfc7f300c.jpg",
+    "static/media/Bt-speaker.png": "/audiophile-ecommerce-webpage/static/media/Bt-speaker.66c31ffffd6b942a9fc7.png",
+    "static/media/Speaker.png": "/audiophile-ecommerce-webpage/static/media/Speaker.fa91bdfc38383e7e0719.png",
+    "static/media/image-earphones-yx1.jpg": "/audiophile-ecommerce-webpage/static/media/image-earphones-yx1.48e16a44bd58ed3be41e.jpg",
+    "static/media/circles.png": "/audiophile-ecommerce-webpage/static/media/circles.a36a7ff184a029d7699b.png",
+    "static/media/insta.svg": "/audiophile-ecommerce-webpage/static/media/insta.df088038fc963e5175c2dcea9142ce08.svg",
+    "index.html": "/audiophile-ecommerce-webpage/index.html",
+    "static/media/twitter.svg": "/audiophile-ecommerce-webpage/static/media/twitter.093f0d3b876df7d46e45141f72ae6380.svg",
+    "static/media/Colaborations.svg": "/audiophile-ecommerce-webpage/static/media/Colaborations.c819042face097d5d931fae085dedfbe.svg",
+    "static/media/Hamburger.svg": "/audiophile-ecommerce-webpage/static/media/Hamburger.e1ba3e8155d63f744df2abf92a4b4efb.svg",
+    "static/media/arrow.svg": "/audiophile-ecommerce-webpage/static/media/arrow.aefddf297740fe9b50fc97d86c1332ea.svg",
+    "main.5ebfd7eb.css.map": "/audiophile-ecommerce-webpage/static/css/main.5ebfd7eb.css.map",
+    "main.436d3a91.js.map": "/audiophile-ecommerce-webpage/static/js/main.436d3a91.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ebfd7eb.css",
+    "static/js/main.436d3a91.js"
+  ]
+}
